@@ -85,37 +85,130 @@
                 </nav>
                 <!-- Content -->
                 <main class="flex-grow-1 p-3 p-md-4">
-                    <!-- Blank Page -->
+                    <!-- ChartsPage -->
                     <section class="page">
                         <nav aria-label="breadcrumb" class="mb-3">
                             <ol class="breadcrumb small mb-1">
                                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Blank Page</li>
+                                <li class="breadcrumb-item active" aria-current="page">ChartsPage</li>
                             </ol>
                         </nav>
                         <div class="mb-3">
-                            <h4 class="mb-1">Blank Page</h4>
+                            <h4 class="mb-1">ChartsPage</h4>
                             <p class="text-secondary mb-0">A clean starting point for your pages</p>
                         </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title">Example Card</h5>
+                        
+                        <!-- First Row: 2 Cards -->
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                <h5 class="card-title mb-0">Recent Activity</h5>
+                                </div>
+                                <div class="card-body">
+                                <canvas id="recentActivityChart" class="chart-canvas"></canvas>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <p>This is a Blank Page with breadcrumb and card layout.</p>
-                                <p>You can use this as a starting point for building new pages in your application.</p>
-
-                                <div class="d-flex justify-content-between mt-3">
-                                    <a href="#!" class="btn btn-outline-secondary">
-                                        <i class="ri-arrow-left-fill"></i> Back
-                                    </a>
-
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="ri-save-line"></i> Submit
-                                    </button>
+                            </div>
+                            <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                <h5 class="card-title mb-0">Performance Metrics</h5>
                                 </div>
+                                <div class="card-body">
+                                <canvas id="performanceMetricsChart" class="chart-canvas"></canvas>
                                 </div>
+                            </div>
+                            </div>
                         </div>
+
+                        <!-- Second Row: Full Width Chart -->
+                        <div class="row g-4 mb-4">
+                            <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                <h5 class="card-title mb-0">User Engagement (Line)</h5>
+                                </div>
+                                <div class="card-body">
+                                <canvas id="userEngagementChart" class="chart-canvas"></canvas>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- New Row: Revenue + Sales by Category -->
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                <h5 class="card-title mb-0">Revenue Overview (Area)</h5>
+                                </div>
+                                <div class="card-body">
+                                <canvas id="revenueChart" class="chart-canvas"></canvas>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                <h5 class="card-title mb-0">Sales by Category (Doughnut)</h5>
+                                </div>
+                                <div class="card-body">
+                                <canvas id="salesCategoryChart" class="chart-canvas"></canvas>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- New Row: Monthly Users + Browser Stats -->
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                <h5 class="card-title mb-0">Monthly Users (Stacked Area)</h5>
+                                </div>
+                                <div class="card-body">
+                                <canvas id="monthlyUsersChart" class="chart-canvas"></canvas>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                <h5 class="card-title mb-0">Browser Stats (Polar Area)</h5>
+                                </div>
+                                <div class="card-body">
+                                <canvas id="browserStatsChart" class="chart-canvas"></canvas>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- New Row: Interactive Bar + Force-Directed Graph Alternative -->
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                <h5 class="card-title mb-0">Interactive Bar Chart (Hover Tooltips)</h5>
+                                </div>
+                                <div class="card-body">
+                                <canvas id="interactiveBarChart" class="chart-canvas"></canvas>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                <h5 class="card-title mb-0">Top Referrers (Radar Chart)</h5>
+                                <small class="opacity-75">Alternative to Force-Directed Graph (pure Chart.js)</small>
+                                </div>
+                                <div class="card-body">
+                                <canvas id="radarChart" class="chart-canvas"></canvas>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
                     </section>
                 </main>
                 <footer class="footer py-3 px-3 px-md-4 border-top mt-auto">

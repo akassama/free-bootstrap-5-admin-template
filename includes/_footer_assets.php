@@ -35,5 +35,17 @@
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
         <!-- Tippy JS -->
         <script src="https://unpkg.com/tippy.js@6"></script>
+        <!-- Tagify -->
+        <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+        <!-- CodeMirror -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/css/css.min.js"></script>
+        <!-- CKEditor -->
+        <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+        <!--Trumbowyg Editor-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.27.3/trumbowyg.min.js"></script>
+        <!-- Quill library -->
+        <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.0/dist/quill.js"></script>
         <!-- Site JS -->
         <script src="assets/js/site.js"></script>

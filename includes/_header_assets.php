@@ -20,5 +20,15 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.10.4/dist/css/tempus-dominus.min.css">
         <!--Summernote css-->
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-lite.min.css" rel="stylesheet">
+        <!-- Tagify -->
+        <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+        <!-- CodeMirror -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/dracula.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css" rel="stylesheet">
+        <!--Trumbowyg Editor-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.27.3/ui/trumbowyg.min.css">
+        <!-- Quill stylesheet -->
+        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.0/dist/quill.snow.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.0/dist/quill.bubble.css" rel="stylesheet"/>
         <!-- Site CSS -->
         <link rel="stylesheet" href="assets/css/site.css" />

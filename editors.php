@@ -85,36 +85,57 @@
                 </nav>
                 <!-- Content -->
                 <main class="flex-grow-1 p-3 p-md-4">
-                    <!-- Blank Page -->
+                    <!-- Text Editors Page -->
                     <section class="page">
                         <nav aria-label="breadcrumb" class="mb-3">
                             <ol class="breadcrumb small mb-1">
                                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Blank Page</li>
+                                <li class="breadcrumb-item active" aria-current="page">Text Editors Page</li>
                             </ol>
                         </nav>
                         <div class="mb-3">
-                            <h4 class="mb-1">Blank Page</h4>
+                            <h4 class="mb-1">Text Editors Page</h4>
                             <p class="text-secondary mb-0">A clean starting point for your pages</p>
                         </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title">Example Card</h5>
+                        <div class="row">
+                            <div class="col-12">
+                                <h2>CodeMirror Examples</h2>
+                                <p>JavaScript Code:</p>
+                                <textarea class="form-control js-editor" id="javascript-editor">console.log('Hello, world!');</textarea>
+                                <p>CSS Code:</p>
+                                <textarea class="form-control css-editor" id="css-editor">body { background-color: #282a36; }</textarea>
+                                <p>Code Editor:</p>
+                                <textarea class="form-control code-editor" id="editor" name="editor"></textarea>
                             </div>
-                            <div class="card-body">
-                                <p>This is a Blank Page with breadcrumb and card layout.</p>
-                                <p>You can use this as a starting point for building new pages in your application.</p>
-
-                                <div class="d-flex justify-content-between mt-3">
-                                    <a href="#!" class="btn btn-outline-secondary">
-                                        <i class="ri-arrow-left-fill"></i> Back
-                                    </a>
-
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="ri-save-line"></i> Submit
-                                    </button>
+                            <div class="col-12 mt-3">
+                                <h2>CK Editor</h2>
+                                <form action="/action_page.php">
+                                    <div class="mb-3 mt-3">
+                                    <label for="ckeditor">Text:</label>
+                                    <textarea class="form-control text-editor" rows="3" id="ckeditor" name="ckeditor"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <h2>Trumbowyg Editor</h2>
+                                <div class="mb-3 mt-3">
+                                <label for="treditor" class="form-label">Description:</label>
+                                <textarea class="trumbowyg-editor" name="treditor" id="treditor" placeholder="Start typing...">
+                                    <p>It is very lightweight.</p>
+                                </textarea>
                                 </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <label for="post_content" class="form-label">Post Content:</label>
+                                <textarea class="form-control summernote" name="post_content">
+                                    <p>Hello! This is the <b>latest</b> Summernote.</p>
+                                </textarea>
+                            </div>
+                            <div class="col-12 my-5">
+                                <div id="quill-editor">
+                                <p>Hello World!</p>
                                 </div>
+                            </div>
                         </div>
                     </section>
                 </main>

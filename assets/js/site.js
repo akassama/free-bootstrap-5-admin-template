@@ -113,6 +113,19 @@
         });
     });
 
+    /**
+     * Initialize Select2 for multi-select
+     */
+    if (window.jQuery && $('.select2-options').length) {
+        $('.select2-options').select2({
+            placeholder: "Select your skills",
+            allowClear: true,
+            width: '100%',
+            minimumInputLength: 2,
+            maximumInputLength: 25
+        });
+    }
+
 
     /**
      * Initialize DataTable
@@ -131,4 +144,117 @@
      * Initialize jQuery Validation
      */
     $("form").validate();
+
 })();
+
+$(document).ready(function() {
+
+    /**
+     * Initialize tagify
+     */
+    var allTagInputs = document.querySelectorAll('.tags-input');
+    allTagInputs.forEach(function(inputElement) {
+        new Tagify(inputElement, {
+            dropdown: {
+                enabled: 0,
+                closeOnSelect: false
+            }
+        });
+    });
+
+    /**
+     * Initialize CodeMirror for the JavaScript editor.
+     * @type {CodeMirror.EditorFromTextArea}
+     */
+	document.querySelectorAll('.js-editor').forEach((el) => {
+        CodeMirror.fromTextArea(el, {
+			mode: 'javascript',
+			theme: 'dracula',
+			styleActiveLine: true,
+			matchBrackets: true,
+			lineNumbers: true
+        });
+    });
+    
+    /**
+     * Initialize CodeMirror for the CSS editor.
+     * @type {CodeMirror.EditorFromTextArea}
+     */
+	document.querySelectorAll('.css-editor').forEach((el) => {
+        CodeMirror.fromTextArea(el, {
+			mode: 'css',
+			theme: 'dracula',
+			styleActiveLine: true,
+			matchBrackets: true,
+			lineNumbers: true
+        });
+    });
+    
+    /**
+     * Initializes CodeMirror for each text area with the class `code-editor`.
+     * @param {NodeListOf<HTMLTextAreaElement>} textAreas - List of text area elements with class `code-editor`.
+     */
+    document.querySelectorAll('.code-editor').forEach((el) => {
+        CodeMirror.fromTextArea(el, {
+            theme: 'dracula', 
+            lineNumbers: true, 
+            mode: 'javascript'
+        });
+    });
+
+    /**
+     * Initialize CKEditor
+     */
+    ClassicEditor.create( document.querySelector('.text-editor') )
+        .then( editor => {
+                console.log( editor );
+        })
+        .catch( error => {
+                console.error( error );
+    });
+
+    /**
+     * Initialize on any textarea with this class
+     */
+    $('.trumbowyg-editor').trumbowyg({
+        btns: [
+            ['viewHTML'],
+            ['undo', 'redo'], // Only supported in some browsers
+            ['formatting'],
+            ['strong', 'em', 'del'],
+            ['superscript', 'subscript'],
+            ['link'],
+            ['insertImage'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen']
+        ]
+    });
+
+    /**
+     * Initialize Summernote on all elements with class 'summernote'
+    */
+      $('.summernote').summernote({
+          height: 250,
+          placeholder: 'Type something here...',
+          tabsize: 2
+      });
+
+
+      /**
+     * Initialize a Quill editor for a specific element with a given class.
+     *
+     * @constructor
+     * @param {string|HTMLElement} selector - The CSS selector or HTMLElement where the Quill editor should be initialized.
+     * @param {Object} options - Configuration options for the Quill editor.
+     * @param {string} options.theme - The theme to be used for the Quill editor.
+     * @returns {Quill} - The Quill editor instance.
+     */
+    const quill = new Quill('#quill-editor', {
+        theme: 'snow'
+    });
+
+
+});
