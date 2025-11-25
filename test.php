@@ -200,6 +200,121 @@
                             </div>
                         </div>
                     </section>
+                    <section class="page">
+                        <!-- ************ Sample Admin Form ************ -->
+                        <form class="page" novalidate>
+                        <!-- Text Input -->
+                        <div class="form-section">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                            <div class="invalid-feedback">Please enter a username.</div>
+                        </div>
+
+                        <!-- Email Input -->
+                        <div class="form-section">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                            <div class="invalid-feedback">Please provide a valid email.</div>
+                        </div>
+
+                        <!-- Password Input -->
+                        <div class="form-section">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                            <div class="form-text">Password must be at least 8 characters long.</div>
+                        </div>
+
+                        <!-- Textarea -->
+                        <div class="form-section">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea class="form-control" id="bio" rows="3" placeholder="Tell us about yourself"></textarea>
+                        </div>
+
+                        <!-- Select -->
+                        <div class="form-section">
+                            <label for="role" class="form-label">Role</label>
+                            <select class="form-select" id="role" required>
+                            <option value="">Choose...</option>
+                            <option value="admin">Administrator</option>
+                            <option value="editor">Editor</option>
+                            <option value="viewer">Viewer</option>
+                            </select>
+                            <div class="invalid-feedback">Please select a role.</div>
+                        </div>
+
+                        <!-- Checkbox Group -->
+                        <div class="form-section">
+                            <span class="form-label d-block">Permissions</span>
+                            <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="perm_users" value="users">
+                            <label class="form-check-label" for="perm_users">Manage Users</label>
+                            </div>
+                            <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="perm_content" value="content">
+                            <label class="form-check-label" for="perm_content">Manage Content</label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="perm_settings" value="settings">
+                            <label class="form-check-label" for="perm_settings">Access Settings</label>
+                            </div>
+                        </div>
+
+                        <!-- Radio Group -->
+                        <div class="form-section">
+                            <span class="form-label d-block">Account Status</span>
+                            <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="status" id="status_active" value="active" checked>
+                            <label class="form-check-label" for="status_active">Active</label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="status_inactive" value="inactive">
+                            <label class="form-check-label" for="status_inactive">Inactive</label>
+                            </div>
+                        </div>
+
+                        <!-- Switch -->
+                        <div class="form-section">
+                            <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="email_notifications" checked>
+                            <label class="form-check-label" for="email_notifications">Email Notifications</label>
+                            </div>
+                            <div class="form-text">Receive email alerts for important updates.</div>
+                        </div>
+
+                        <!-- File Upload -->
+                        <div class="form-section">
+                            <label for="avatar" class="form-label">Profile Picture</label>
+                            <input class="form-control" type="file" id="avatar" accept="image/*">
+                            <div class="form-text">Max file size: 2MB. JPG, PNG, or GIF only.</div>
+                        </div>
+
+                        <!-- Number Input -->
+                        <div class="form-section">
+                            <label for="max_login_attempts" class="form-label">Max Login Attempts</label>
+                            <input type="number" class="form-control" id="max_login_attempts" min="1" max="10" value="5">
+                        </div>
+
+                        <!-- Date Input -->
+                        <div class="form-section">
+                            <label for="birthdate" class="form-label">Birth Date</label>
+                            <input type="date" class="form-control" id="birthdate">
+                        </div>
+
+                        <!-- URL Input -->
+                        <div class="form-section">
+                            <label for="website" class="form-label">Website</label>
+                            <input type="url" class="form-control" id="website" placeholder="https://example.com">
+                        </div>
+
+                        <!-- Hidden Input (for demo completeness) -->
+                        <input type="hidden" name="user_id" value="12345">
+
+                        <!-- Submit Button -->
+                        <div class="form-section d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary btn-submit">Save Changes</button>
+                        </div>
+                        </form>
+                    </section>
                 </main>
                 <footer class="footer py-3 px-3 px-md-4 border-top mt-auto">
                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">

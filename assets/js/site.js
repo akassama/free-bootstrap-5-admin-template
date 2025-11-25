@@ -1,13 +1,20 @@
 (function () {
     /**
-     * Sidebar toggle
+     * Sidebar toggle with persistence
      */
     const sidebarToggles = document.querySelectorAll('[data-toggle="sidebar"]');
     const body = document.body;
 
+    // Restore sidebar state on page load
+    const sidebarCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+    if (sidebarCollapsed) {
+        body.classList.add('sidebar-collapsed');
+    }
+
     sidebarToggles.forEach((btn) => {
         btn.addEventListener("click", () => {
             body.classList.toggle("sidebar-collapsed");
+            localStorage.setItem("sidebarCollapsed", body.classList.contains("sidebar-collapsed"));
         });
     });
 

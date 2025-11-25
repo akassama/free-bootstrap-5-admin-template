@@ -36,85 +36,8 @@
                         <i class="ri-close-line"></i>
                     </button>
                 </div>
-                <div class="sidebar-body">
-                    <div class="sidebar-section">
-                        <div class="sidebar-section-title">Menu</div>
-                        <nav class="nav flex-column mb-2">
-                            <a href="index.php" class="nav-link active">
-                                <i class="ri-home-2-line"></i>
-                                <span class="sidebar-text">Dashboard</span>
-                            </a>
-                            <a href="profile.php" class="nav-link">
-                                <i class="ri-user-3-line"></i>
-                                <span class="sidebar-text">Profile</span>
-                            </a>
-                            <a href="forms.php" class="nav-link">
-                                <i class="ri-news-line"></i>
-                                <span class="sidebar-text">Forms</span>
-                            </a>
-                            <a href="tables.php" class="nav-link">
-                                <i class="ri-table-view"></i>
-                                <span class="sidebar-text">Tables</span>
-                            </a>
-                            <a href="editors.php" class="nav-link">
-                                <i class="ri-code-block"></i>
-                                <span class="sidebar-text">Editors</span>
-                            </a>
-                            <a href="cards.php" class="nav-link">
-                                <i class="ri-id-card-line"></i>
-                                <span class="sidebar-text">Cards</span>
-                            </a>
-                            <a href="charts.php" class="nav-link">
-                                <i class="ri-pie-chart-fill"></i>
-                                <span class="sidebar-text">Charts</span>
-                            </a>
-                            <a href="layout.php" class="nav-link">
-                                <i class="ri-file-text-line"></i>
-                                <span class="sidebar-text">Layout</span>
-                            </a>
-                        </nav>
-                    </div>
-                    <div class="sidebar-section">
-                        <div class="sidebar-section-title">Page Examples</div>
-                        <nav class="nav flex-column mb-2">
-                            <!-- Dropdown (Expandable) -->
-                            <a
-                                href="#"
-                                class="nav-link d-flex justify-content-between align-items-center bs-dropdown-toggle"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#pageExamplesMenu"
-                            >
-                                <span>
-                                    <i class="ri-git-branch-line me-2"></i>
-                                    Dropdown Sample
-                                </span>
-                                <i class="ri-arrow-right-s-line toggle-arrow"></i>
-                            </a>
-                            <div class="collapse ps-4" id="pageExamplesMenu">
-                                <a href="sign-in.php" class="nav-link">
-                                    <i class="ri-checkbox-blank-circle-line"></i> Sign In
-                                </a>
-                                <a href="sign-up.php" class="nav-link">
-                                    <i class="ri-checkbox-blank-circle-line"></i> Sign Up
-                                </a>
-                                <a href="forgot-password.php" class="nav-link">
-                                    <i class="ri-checkbox-blank-circle-line"></i> Forgot Password
-                                </a>
-                                <a href="reset-password.php" class="nav-link">
-                                    <i class="ri-checkbox-blank-circle-line"></i> Reset Password
-                                </a>
-                                <a href="404.php" class="nav-link">
-                                    <i class="ri-checkbox-blank-circle-line"></i> 404 Not Found
-                                </a>
-                                <a href="500.php" class="nav-link">
-                                    <i class="ri-checkbox-blank-circle-line"></i> 500 Error
-                                </a>
-                                <a href="lock.php" class="nav-link">
-                                    <i class="ri-checkbox-blank-circle-line"></i> Lock
-                                </a>
-                            </div>
-                        </nav>
-                    </div>
+                <div class="sidebar-body"  id="sidebar-body">
+                    <?php include_once 'includes/_sidebar.php'; ?>
                 </div>
             </aside>
             <div class="sidebar-backdrop" data-toggle="sidebar"></div>
@@ -209,8 +132,8 @@
                                     <div class="d-flex gap-2">
                                         <select class="form-select form-select-sm" style="width: auto;">
                                             <option>Bulk Actions</option>
-                                            <option>Activate</option>
-                                            <option>Deactivate</option>
+                                            <option>Mark as Read</option>
+                                            <option>Mark as Unread</option>
                                             <option>Delete</option>
                                         </select>
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
@@ -218,78 +141,119 @@
                                 </div>
                                 <!-- DataTable -->
                                 <div class="table-responsive">
-                                    <table class="table table-hover datatable">
+                                    <table
+                                        class="table table-hover align-middle datatable"
+                                        id="recentUsersTable"
+                                        style="width: 100%"
+                                    >
                                         <thead>
                                             <tr>
-                                                <th scope="col">
-                                                    <div class="form-check mb-0">
-                                                        <input class="form-check-input" type="checkbox" id="selectAllUsers">
-                                                        <label class="form-check-label" for="selectAllUsers"></label>
-                                                    </div>
-                                                </th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Date Created</th>
-                                                <th scope="col">Verified</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Actions</th>
+                                                <th>User</th>
+                                                <th>Email</th>
+                                                <th>Status</th>
+                                                <th>Joined</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <div class="form-check mb-0">
-                                                        <input class="form-check-input" type="checkbox" value="" id="user1">
-                                                        <label class="form-check-label" for="user1"></label>
+                                                    <div class="d-flex align-items-center">
+                                                        <img
+                                                            src="https://ui-avatars.com/api/?name=Jane+Doe&background=0D8ABC&color=fff"
+                                                            alt="Jane Doe"
+                                                            class="user-avatar me-2"
+                                                        />
+                                                        <div>
+                                                            <div class="fw-semibold">Jane Doe</div>
+                                                            <small class="text-secondary">Administrator</small>
+                                                        </div>
                                                     </div>
                                                 </td>
-                                                <td>John Doe</td>
-                                                <td>2025-01-15</td>
-                                                <td><span class="badge bg-success">Yes</span></td>
-                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>jane.doe@example.com</td>
                                                 <td>
-                                                    <div class="d-flex gap-1">
-                                                        <button class="btn btn-sm btn-outline-secondary"><i class="ri-eye-line"></i></button>
-                                                        <button class="btn btn-sm btn-outline-secondary"><i class="ri-pencil-line"></i></button>
-                                                        <button class="btn btn-sm btn-outline-secondary"><i class="ri-delete-bin-line"></i></button>
-                                                    </div>
+                                                    <span class="badge text-bg-success">Active</span>
                                                 </td>
-                                            </tr>
-                                            <tr>
+                                                <td>2024-09-12</td>
                                                 <td>
-                                                    <div class="form-check mb-0">
-                                                        <input class="form-check-input" type="checkbox" value="" id="user2">
-                                                        <label class="form-check-label" for="user2"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Jane Smith</td>
-                                                <td>2025-01-14</td>
-                                                <td><span class="badge bg-success">Yes</span></td>
-                                                <td><span class="badge bg-warning text-dark">Pending</span></td>
-                                                <td>
-                                                    <div class="d-flex gap-1">
-                                                        <button class="btn btn-sm btn-outline-secondary"><i class="ri-eye-line"></i></button>
-                                                        <button class="btn btn-sm btn-outline-secondary"><i class="ri-pencil-line"></i></button>
-                                                        <button class="btn btn-sm btn-outline-secondary"><i class="ri-delete-bin-line"></i></button>
-                                                    </div>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <div class="form-check mb-0">
-                                                        <input class="form-check-input" type="checkbox" value="" id="user3">
-                                                        <label class="form-check-label" for="user3"></label>
+                                                    <div class="d-flex align-items-center">
+                                                        <img
+                                                            src="https://ui-avatars.com/api/?name=John+Smith&background=FF6B6B&color=fff"
+                                                            alt="John Smith"
+                                                            class="user-avatar me-2"
+                                                        />
+                                                        <div>
+                                                            <div class="fw-semibold">John Smith</div>
+                                                            <small class="text-secondary">Editor</small>
+                                                        </div>
                                                     </div>
                                                 </td>
-                                                <td>Bob Johnson</td>
-                                                <td>2025-01-13</td>
-                                                <td><span class="badge bg-danger">No</span></td>
-                                                <td><span class="badge bg-danger">Inactive</span></td>
+                                                <td>john.smith@example.com</td>
                                                 <td>
-                                                    <div class="d-flex gap-1">
-                                                        <button class="btn btn-sm btn-outline-secondary"><i class="ri-eye-line"></i></button>
-                                                        <button class="btn btn-sm btn-outline-secondary"><i class="ri-pencil-line"></i></button>
-                                                        <button class="btn btn-sm btn-outline-secondary"><i class="ri-delete-bin-line"></i></button>
+                                                    <span class="badge text-bg-warning">Pending</span>
+                                                </td>
+                                                <td>2024-10-03</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img
+                                                            src="https://ui-avatars.com/api/?name=Fatou+Kamara&background=34A853&color=fff"
+                                                            alt="Fatou Kamara"
+                                                            class="user-avatar me-2"
+                                                        />
+                                                        <div>
+                                                            <div class="fw-semibold">Fatou Kamara</div>
+                                                            <small class="text-secondary">Viewer</small>
+                                                        </div>
                                                     </div>
+                                                </td>
+                                                <td>fatou.kamara@example.com</td>
+                                                <td>
+                                                    <span class="badge text-bg-secondary">Inactive</span>
+                                                </td>
+                                                <td>2024-08-21</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img
+                                                            src="https://ui-avatars.com/api/?name=Abdoulie+Kassama&background=6366F1&color=fff"
+                                                            alt="Abdoulie Kassama"
+                                                            class="user-avatar me-2"
+                                                        />
+                                                        <div>
+                                                            <div class="fw-semibold">Abdoulie Kassama</div>
+                                                            <small class="text-secondary">Owner</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>abdoulie.kassama@example.com</td>
+                                                <td>
+                                                    <span class="badge text-bg-success">Active</span>
+                                                </td>
+                                                <td>2024-07-05</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>
