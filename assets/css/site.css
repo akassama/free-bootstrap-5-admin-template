@@ -139,6 +139,7 @@ body.sidebar-collapsed .sidebar {
     font-weight: 600;
 }
 
+
 /* ************ Responsive cards ************ */
 .card {
     border-radius: var(--card-border-radius);
@@ -156,6 +157,271 @@ body.sidebar-collapsed .sidebar {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0;
+}
+
+/* ************ Custom Cards ************ */
+.stat-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--bs-border-color);
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.stat-card-icon-lg {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stat-card-change {
+    font-size: 0.8rem;
+}
+
+.stat-card-change.positive {
+    color: var(--bs-success);
+}
+
+.stat-card-change.negative {
+    color: var(--bs-danger);
+}
+
+/* User cards */
+.user-card .user-avatar-lg {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Progress cards */
+.progress-card .progress {
+    height: 6px;
+}
+
+/* Icon cards */
+.icon-card {
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.icon-card:hover {
+    transform: translateY(-2px);
+}
+
+.icon-card .card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Activity cards */
+.activity-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+/* Task cards */
+.task-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-checkbox:checked + .task-label {
+    text-decoration: line-through;
+    color: var(--bs-secondary-color);
+}
+
+/* Notification cards */
+.notification-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Chart cards */
+.chart-card .chart-container {
+    height: 200px;
+}
+
+/* Product cards */
+.product-card .product-image {
+    height: 140px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Card with actions */
+.card-with-actions .card-actions {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.card-with-actions:hover .card-actions {
+    opacity: 1;
+}
+
+/* Card gradients */
+.card-gradient-primary {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, #0d6efd 100%);
+    color: white;
+}
+
+.card-gradient-success {
+    background: linear-gradient(135deg, var(--bs-success) 0%, #198754 100%);
+    color: white;
+}
+
+.card-gradient-warning {
+    background: linear-gradient(135deg, var(--bs-warning) 0%, #ffc107 100%);
+    color: white;
+}
+
+.card-gradient-info {
+    background: linear-gradient(135deg, var(--bs-info) 0%, #0dcaf0 100%);
+    color: white;
+}
+
+/* Card hover effects */
+.card-hover-lift {
+    transition: all 0.3s ease;
+}
+
+.card-hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+/* Card borders */
+.card-border-primary {
+    border-left: 4px solid var(--bs-primary);
+}
+
+.card-border-success {
+    border-left: 4px solid var(--bs-success);
+}
+
+.card-border-warning {
+    border-left: 4px solid var(--bs-warning);
+}
+
+.card-border-danger {
+    border-left: 4px solid var(--bs-danger);
+}
+
+/* Card status indicators */
+.card-status {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 0 var(--card-border-radius) var(--card-border-radius) 0;
+}
+
+.card-status-online {
+    background-color: var(--bs-success);
+}
+
+.card-status-offline {
+    background-color: var(--bs-secondary);
+}
+
+.card-status-busy {
+    background-color: var(--bs-warning);
+}
+
+.card-status-error {
+    background-color: var(--bs-danger);
+}
+
+/* Card loading state */
+.card-loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Card badges */
+.card-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    z-index: 1;
+}
+
+/* Responsive card adjustments */
+@media (max-width: 767.98px) {
+    .stat-card-icon-lg {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+    
+    .user-card .user-avatar-lg {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .icon-card {
+        padding: 1rem;
+    }
+    
+    .icon-card .card-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
 }
 
 /* ************ Chart canvas ************ */
