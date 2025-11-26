@@ -35,23 +35,6 @@
                                 <h5 class="card-title">Users</h5>
                             </div>
                             <div class="card-body">
-                                <!-- Bulk Actions Toolbar -->
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div class="d-flex gap-2">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">
-                                            <i class="ri-refresh-line"></i> Refresh
-                                        </button>
-                                    </div>
-                                    <div class="d-flex gap-2">
-                                        <select class="form-select form-select-sm" style="width: auto;">
-                                            <option>Bulk Actions</option>
-                                            <option>Mark as Read</option>
-                                            <option>Mark as Unread</option>
-                                            <option>Delete</option>
-                                        </select>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
-                                    </div>
-                                </div>
                                 <!-- DataTable -->
                                 <div class="table-responsive">
                                     <table
@@ -346,7 +329,7 @@
                                     document.write(new Date().getFullYear());
                                 </script></span
                             >
-                            <span class="fw-semibold">Laravel Admin</span>.
+                            <span class="fw-semibold">Starter Admin</span>.
                             <span>All rights reserved.</span>
                         </div>
                         <div class="d-flex gap-3">

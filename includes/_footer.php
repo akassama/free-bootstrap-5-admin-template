@@ -7,7 +7,7 @@
                     document.write(new Date().getFullYear());
                 </script></span
             >
-            <span class="fw-semibold">Laravel Admin</span>.
+            <span class="fw-semibold">Starter Admin</span>.
             <span>All rights reserved.</span>
         </div>
         <div class="d-flex gap-3">

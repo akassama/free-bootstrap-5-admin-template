@@ -470,7 +470,7 @@
                 <div class="sidebar-header d-flex justify-content-between align-items-center">
                     <div class="sidebar-brand">
                         <i class="ri-flashlight-line text-primary"></i>
-                        <span>Laravel</span>
+                        <span>Starter Admin</span>
                     </div>
                     <button class="btn btn-sm btn-outline-secondary d-md-none" type="button" data-toggle="sidebar">
                         <i class="ri-close-line"></i>

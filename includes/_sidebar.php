@@ -2,7 +2,7 @@
     <div class="sidebar-header d-flex justify-content-between align-items-center">
         <div class="sidebar-brand">
             <i class="ri-flashlight-line text-primary"></i>
-            <span>Laravel</span>
+            <span>Starter Admin</span>
         </div>
         <button class="btn btn-sm btn-outline-secondary d-md-none" type="button" data-toggle="sidebar">
             <i class="ri-close-line"></i>
@@ -63,25 +63,25 @@
                     <i class="ri-arrow-right-s-line toggle-arrow"></i>
                 </a>
                 <div class="collapse ps-4" id="pageExamplesMenu">
-                    <a href="sign-in.php" class="nav-link">
+                    <a href="sign-in.php" class="nav-link" target="_blank">
                         <i class="ri-checkbox-blank-circle-line"></i> Sign In
                     </a>
-                    <a href="sign-up.php" class="nav-link">
+                    <a href="sign-up.php" class="nav-link" target="_blank">
                         <i class="ri-checkbox-blank-circle-line"></i> Sign Up
                     </a>
-                    <a href="forgot-password.php" class="nav-link">
+                    <a href="forgot-password.php" class="nav-link" target="_blank">
                         <i class="ri-checkbox-blank-circle-line"></i> Forgot Password
                     </a>
-                    <a href="reset-password.php" class="nav-link">
+                    <a href="reset-password.php" class="nav-link" target="_blank">
                         <i class="ri-checkbox-blank-circle-line"></i> Reset Password
                     </a>
-                    <a href="404.php" class="nav-link">
+                    <a href="404.php" class="nav-link" target="_blank">
                         <i class="ri-checkbox-blank-circle-line"></i> 404 Not Found
                     </a>
-                    <a href="500.php" class="nav-link">
+                    <a href="500.php" class="nav-link" target="_blank">
                         <i class="ri-checkbox-blank-circle-line"></i> 500 Error
                     </a>
-                    <a href="lock.php" class="nav-link">
+                    <a href="lock.php" class="nav-link" target="_blank">
                         <i class="ri-checkbox-blank-circle-line"></i> Lock
                     </a>
                 </div>
