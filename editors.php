@@ -99,7 +99,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <h2>CodeMirror Examples</h2>
+                                <h2>CodeMirror Editor</h2>
                                 <p>JavaScript Code:</p>
                                 <textarea class="form-control js-editor" id="javascript-editor">console.log('Hello, world!');</textarea>
                                 <p>CSS Code:</p>
@@ -119,40 +119,28 @@
                             <div class="col-12 mt-3">
                                 <h2>Trumbowyg Editor</h2>
                                 <div class="mb-3 mt-3">
-                                <label for="treditor" class="form-label">Description:</label>
-                                <textarea class="trumbowyg-editor" name="treditor" id="treditor" placeholder="Start typing...">
-                                    <p>It is very lightweight.</p>
-                                </textarea>
+                                    <label for="treditor" class="form-label">Description:</label>
+                                    <textarea class="trumbowyg-editor" name="treditor" id="treditor" placeholder="Start typing...">
+                                        <p>It is very lightweight.</p>
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="col-12 mt-3">
+                                <h2>Summernote Editor</h2>
                                 <label for="post_content" class="form-label">Post Content:</label>
                                 <textarea class="form-control summernote" name="post_content">
                                     <p>Hello! This is the <b>latest</b> Summernote.</p>
                                 </textarea>
                             </div>
-                            <div class="col-12 my-5">
-                                <div id="quill-editor">
-                                <p>Hello World!</p>
-                                </div>
+                            <div class="col-12 mt-3">
+                                <h2>Quill Editor</h2>
+                                <div class="quill-editor" data-quill-target="quill-hidden-data" id="comment"></div>
+                                <textarea name="text" id="quill-hidden-data" style="display:none;"></textarea>
                             </div>
                         </div>
                     </section>
                 </main>
-                <footer class="footer py-3 px-3 px-md-4 border-top mt-auto">
-                    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
-                        <div class="text-secondary small">
-                            <span>&copy; <script>document.write(new Date().getFullYear())</script></span>
-                            <span class="fw-semibold">Laravel Admin</span>.
-                            <span>All rights reserved.</span>
-                        </div>
-                        <div class="d-flex gap-3">
-                            <a href="#" class="text-decoration-none small">Privacy Policy</a>
-                            <a href="#" class="text-decoration-none small">Terms of Service</a>
-                            <a href="#" class="text-decoration-none small">Support</a>
-                        </div>
-                    </div>
-                </footer>
+                <?php include_once 'includes/_footer.php'; ?>
             </div>
         </div>
 

@@ -22,7 +22,9 @@
         <!-- clipboard.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
         <!-- jQuery UI CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.0/jquery-ui.min.js"></script>
+        <!-- jQuery UI Timepicker Addon -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
         <!-- Tabulator JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/6.3.1/js/tabulator.min.js"></script>
         <!-- Grid.js -->
@@ -46,6 +48,6 @@
         <!--Trumbowyg Editor-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.27.3/trumbowyg.min.js"></script>
         <!-- Quill library -->
-        <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.0/dist/quill.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
         <!-- Site JS -->
         <script src="assets/js/site.js"></script>

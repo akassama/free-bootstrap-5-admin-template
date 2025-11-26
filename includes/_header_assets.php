@@ -11,7 +11,9 @@
         <!-- Select2 CSS -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <!-- jQuery UI CDN -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.0/themes/base/jquery-ui.min.css">
+        <!-- jQuery UI Timepicker Addon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css">
         <!-- Tabulator CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabulator/6.3.1/css/tabulator.min.css" />
         <!-- Grid.js -->
@@ -28,7 +30,7 @@
         <!--Trumbowyg Editor-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.27.3/ui/trumbowyg.min.css">
         <!-- Quill stylesheet -->
-        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.0/dist/quill.snow.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.0/dist/quill.bubble.css" rel="stylesheet"/>
+        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.bubble.css" rel="stylesheet"/>
         <!-- Site CSS -->
         <link rel="stylesheet" href="assets/css/site.css" />

@@ -186,6 +186,31 @@
                                         <div class="form-text">Accepted formats: JPG, PNG, GIF. Max size: 2MB.</div>
                                     </div>
                                     
+                                    <!-- Multiple File Input -->
+                                    <div class="mb-3">
+                                        <label for="multiple-files" class="form-label">Multiple Files</label>
+                                        <input class="form-control" type="file" id="multiple-files" multiple>
+                                    </div>
+                                    
+                                    <!-- File Input 2 - Custom Styled Drop Area -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Drop Files:</label>
+                                        <div class="custom-file-drop" id="dropcontainer">
+                                            <input type="file" 
+                                                id="images" 
+                                                accept="image/*" 
+                                                multiple 
+                                                required>
+                                            <div class="custom-file-drop__title">Drop files here</div>
+                                            <div class="custom-file-drop__or">or</div>
+                                            <button type="button" class="custom-file-drop__button">
+                                                Choose files
+                                            </button>
+                                            <div class="custom-file-drop__filename" id="file-name">No files chosen</div>
+                                        </div>
+                                        <div class="form-text mt-2">Accepted formats: JPG, PNG, GIF. Max size: 2MB.</div>
+                                    </div>
+                                    
                                     <!-- Checkboxes -->
                                     <div class="mb-3">
                                         <label class="form-label">Interests</label>
@@ -259,11 +284,24 @@
                                     
                                     <!-- Range Slider with numbers -->
                                     <div class="mb-4">
-                                        <label for="satisfaction" class="form-label">Satisfaction Level: <span id="rangeValue">5</span></label>
-                                        <input type="range" class="form-range" id="satisfaction" min="1" max="10" value="5">
+                                        <label for="satisfaction" class="form-label">Satisfaction Level:</label>
+                                        <input type="range" class="form-range form-slider" 
+                                            data-form-slider-min="0" data-form-slider-max="10" data-form-slider-target="satisfaction-value"/>
+                                        Value: <span id="satisfaction-value"></span>
                                         <div class="d-flex justify-content-between small text-secondary">
                                             <span>1 (Poor)</span>
                                             <span>10 (Excellent)</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="rating" class="form-label">Rating:</label>
+                                        <input type="range" class="form-range form-slider" 
+                                            data-form-slider-min="0" data-form-slider-max="5" data-form-slider-target="rating-value"/>
+                                        Value: <span id="rating-value"></span>
+                                        <div class="d-flex justify-content-between small text-secondary">
+                                            <span>1 <i class="ri-star-fill"></i></span>
+                                            <span>5 <i class="ri-star-fill"></i></span>
                                         </div>
                                     </div>
                                     
@@ -277,6 +315,54 @@
                                         </button>
                                     </div>
                                 </form>
+                            </div>
+                        </div>
+                        
+                        <!-- jQuery-UI Datetime Picker -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">jQuery-UI Date Pickers</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3 mt-3">
+                                        <label for="Date01">Datepicker 1:</label>
+                                        <input type="text" class="form-control jui-datejui-picker" id="Date01" name="Date01" required autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3 mt-3">
+                                        <label for="Date02">Datepicker 2:</label>
+                                        <input type="text" class="form-control jui-datepicker" id="Date02" name="Date02" required autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3 mt-3">
+                                        <label for="Date03">Future Datepicker:</label>
+                                        <input type="text" class="form-control jui-future-datepicker" id="Date03" name="Date03" required autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3 mt-3">
+                                        <label for="Date04">Past Datepicker:</label>
+                                        <input type="text" class="form-control jui-past-datepicker" id="Date04" name="Date04" required autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3 mt-3">
+                                        <label for="Time01">Time Only:</label>
+                                        <input type="text" class="form-control jui-timepicker" id="Time01" name="Time01" required autocomplete="off">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="mb-3 mt-3">
+                                        <label for="DateTime01">Date & Time:</label>
+                                        <input type="text" class="form-control jui-datetimepicker" id="DateTime01" name="DateTime01" required autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
@@ -342,20 +428,7 @@
                     </section>
                 </main>
 
-                <footer class="footer py-3 px-3 px-md-4 border-top mt-auto">
-                    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
-                        <div class="text-secondary small">
-                            <span>&copy; <script>document.write(new Date().getFullYear())</script></span>
-                            <span class="fw-semibold">Laravel Admin</span>.
-                            <span>All rights reserved.</span>
-                        </div>
-                        <div class="d-flex gap-3">
-                            <a href="#" class="text-decoration-none small">Privacy Policy</a>
-                            <a href="#" class="text-decoration-none small">Terms of Service</a>
-                            <a href="#" class="text-decoration-none small">Support</a>
-                        </div>
-                    </div>
-                </footer>
+                <?php include_once 'includes/_footer.php'; ?>
             </div>
         </div>
 
