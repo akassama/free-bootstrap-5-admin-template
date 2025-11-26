@@ -9,21 +9,7 @@
     <body>
         <div class="layout">
             <!-- Sidebar -->
-            <aside class="sidebar">
-                <div class="sidebar-header d-flex justify-content-between align-items-center">
-                    <div class="sidebar-brand">
-                        <i class="ri-flashlight-line text-primary"></i>
-                        <span>Laravel</span>
-                    </div>
-                    <button class="btn btn-sm btn-outline-secondary d-md-none" type="button" data-toggle="sidebar">
-                        <i class="ri-close-line"></i>
-                    </button>
-                </div>
-                <div class="sidebar-body"  id="sidebar-body">
-                    <?php include_once 'includes/_sidebar.php'; ?>
-                </div>
-            </aside>
-            <div class="sidebar-backdrop" data-toggle="sidebar"></div>
+            <?php include_once 'includes/_sidebar.php'; ?>
             <!-- Main area -->
             <div class="content-wrapper d-flex flex-column">
                  <?php include_once 'includes/_top_navbar.php'; ?>
