@@ -28,439 +28,804 @@
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-lite.min.css" rel="stylesheet">
         <!-- Site CSS -->
         <style>
-            /* ************ Roots Variable ************ */
-            :root {
-                --sidebar-width: 240px;
-                --top-navbar-height: 56px;
-                --card-border-radius: 0.5rem;
-                --card-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-                --transition-speed: 0.2s;
-            }
-
-            body {
-                min-height: 100vh;
-            }
-
-            .layout {
-                display: flex;
-                min-height: 100vh;
-                background-color: var(--bs-body-bg);
-            }
-
-            /* ************ Sidebar ************ */
-            .sidebar {
-                width: var(--sidebar-width);
-                border-right: 1px solid var(--bs-border-color);
-                background-color: var(--bs-body-bg);
-                padding-top: 0.75rem;
-                position: sticky;
-                top: 0;
-                align-self: flex-start;
-                height: 100vh;
-                transition: margin-left var(--transition-speed) ease-in-out;
-                overflow-y: auto;
-            }
-
-            .sidebar-header {
-                padding: 0.5rem 1rem 1rem;
-            }
-
-            .sidebar-brand {
-                font-weight: 600;
-                font-size: 1.1rem;
-                display: flex;
-                align-items: center;
-                gap: 0.4rem;
-            }
-
-            .sidebar .nav-link {
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-                border-radius: 0.5rem;
-                padding: 0.6rem 0.9rem;
-                color: var(--bs-body-color);
-                font-size: 0.95rem;
-                margin: 0.1rem 0.75rem;
-            }
-
-            .sidebar .nav-link i {
-                font-size: 1.1rem;
-            }
-
-            .sidebar .nav-link.active,
-            .sidebar .nav-link:hover {
-                background-color: var(--bs-primary-bg-subtle);
-                color: var(--bs-primary);
-            }
-
-            .sidebar-section-title {
-                font-size: 0.75rem;
-                text-transform: uppercase;
-                letter-spacing: 0.06em;
-                margin: 0.75rem 0.75rem 0.25rem;
-                color: var(--bs-secondary-color);
-            }
-
-            body.sidebar-collapsed .sidebar {
-                margin-left: calc(-1 * var(--sidebar-width));
-            }
-
-            /* ************ Top navbar ************ */
-            .top-navbar {
-                border-bottom: 1px solid var(--bs-border-color);
-                height: var(--top-navbar-height);
-            }
-
-            .navbar-brand-text {
-                font-weight: 600;
-            }
-
-            /* ************ Search bar ************ */
-            .search-form {
-                max-width: 300px;
-            }
-
-            .search-form .form-control {
-                border-radius: 1.5rem;
-                padding-left: 2.5rem;
-            }
-
-            .search-form .search-icon {
-                position: absolute;
-                left: 1rem;
-                top: 50%;
-                transform: translateY(-50%);
-                color: var(--bs-secondary-color);
-                z-index: 5;
-            }
-
-            /* ************ Main content ************ */
-            .content-wrapper {
-                flex: 1 1 auto;
-                min-width: 0;
-            }
-
-            .page {
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-
-            /* ************ Dashboard cards ************ */
-            .stat-card-icon {
-                width: 32px;
-                height: 32px;
-                border-radius: 999px;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.1rem;
-            }
-
-            .stat-card-label {
-                font-size: 0.85rem;
-                text-transform: uppercase;
-                letter-spacing: 0.06em;
-                color: var(--bs-secondary-color);
-            }
-
-            .stat-card-value {
-                font-size: 1.25rem;
-                font-weight: 600;
-            }
-
-            /* ************ Responsive cards ************ */
-            .card {
-                border-radius: var(--card-border-radius);
-                box-shadow: var(--card-box-shadow);
-                border: 2.0px solid var(--bs-border-color);
-            }
-
-            .card-header {
-                background-color: var(--bs-body-bg);
-                border-bottom: 1px solid var(--bs-border-color);
-                padding: 0.75rem 1rem;
-            }
-
-            .card-title {
-                font-size: 1rem;
-                font-weight: 600;
-                margin-bottom: 0;
-            }
-
-            /* ************ Chart canvas ************ */
-            .chart-canvas {
-                width: 100% !important;
-                height: 260px !important;
-            }
-
-            /* ************ Table styles ************ */
-            .table-card .table {
-                margin-bottom: 0;
-            }
-
-            .table-card .table th {
-                border-top: none;
-                font-weight: 600;
-                font-size: 0.875rem;
-                color: var(--bs-secondary-color);
-            }
-
-            /* ************ User avatars ************ */
-            .user-avatar {
-                width: 32px;
-                height: 32px;
-                border-radius: 50%;
-                object-fit: cover;
-            }
-
-            /* ************ Profile layout ************ */
-            .profile-sidebar {
-                border-right: 1px solid var(--bs-border-color);
-            }
-
-            /* ************ Breadcrumb ************ */
-            .breadcrumb {
-                background-color: transparent;
-                padding: 0.5rem 0;
-                margin-bottom: 1rem;
-            }
-
-            .breadcrumb-item a {
-                color: var(--bs-primary);
-                text-decoration: none;
-            }
-
-            .breadcrumb-item.active {
-                color: var(--bs-secondary-color);
-            }
-
-            /* ************ Placeholder content ************ */
-            .placeholder-content {
-                min-height: 200px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                color: var(--bs-secondary-color);
-            }
-
-            .placeholder-content i {
-                font-size: 3rem;
-                margin-bottom: 1rem;
-                opacity: 0.5;
-            }
-
-            /* ************ Theme buttons ************ */
-            .btn-theme {
-                min-width: 90px;
-            }
-
-            .btn-theme.active {
-                background-color: var(--bs-primary);
-                border-color: var(--bs-primary);
-                color: #fff;
-            }
-
-            /* ************ Footer ************ */
-            .footer {
-                background-color: var(--bs-body-bg);
-            }
-
-            .footer a {
-                color: var(--bs-secondary-color);
-                transition: color var(--transition-speed);
-            }
-
-            .footer a:hover {
-                color: var(--bs-primary);
-            }
-
-            /* ************ Form elements ************ */
-            .form-label {
-                font-weight: 500;
-                margin-bottom: 0.5rem;
-                color: var(--bs-body-color);
-            }
-
-            .form-control,
-            .form-select {
-                border: 1px solid var(--bs-border-color);
-                border-radius: 0.375rem;
-                padding: 0.5rem 0.75rem;
-                font-size: 0.875rem;
-                background-color: var(--bs-body-bg);
-                color: var(--bs-body-color);
-            }
-
-            .form-control:focus,
-            .form-select:focus {
-                border-color: var(--bs-primary);
-                box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.1);
-            }
-
-            .form-control::placeholder {
-                color: var(--bs-secondary-color);
-                opacity: 0.7;
-            }
-
-            /* ************ Form validation states ************ */
-            .form-control.is-valid {
-                border-color: var(--bs-success);
-            }
-
-            .form-control.is-invalid {
-                border-color: var(--bs-danger);
-            }
-
-            .invalid-feedback {
-                font-size: 0.8rem;
-                color: var(--bs-danger);
-                margin-top: 0.25rem;
-            }
-
-            /* ************ Checkboxes and radios ************ */
-            .form-check-input {
-                border: 1px solid var(--bs-border-color);
-                background-color: var(--bs-body-bg);
-            }
-
-            .form-check-input:checked {
-                background-color: var(--bs-primary);
-                border-color: var(--bs-primary);
-            }
-
-            .form-check-input:focus {
-                border-color: var(--bs-primary);
-                box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.1);
-            }
-
-            .form-check-label {
-                font-size: 0.875rem;
-                color: var(--bs-body-color);
-            }
-
-            /* ************ Form groups and layouts ************ */
-            .form-group {
-                margin-bottom: 1rem;
-            }
-
-            .form-row {
-                display: flex;
-                flex-wrap: wrap;
-                margin-right: -0.5rem;
-                margin-left: -0.5rem;
-            }
-
-            .form-row > .form-group {
-                padding-right: 0.5rem;
-                padding-left: 0.5rem;
-                flex: 1 0 0%;
-            }
-
-            /* ************ Required field indicator ************ */
-            .required::after {
-                content: "*";
-                color: var(--bs-danger);
-                margin-left: 0.25rem;
-            }
-
-            /* ************ Form help text ************ */
-            .form-text {
-                font-size: 0.8rem;
-                color: var(--bs-secondary-color);
-                margin-top: 0.25rem;
-            }
-
-            /* ************ Disabled form elements ************ */
-            .form-control:disabled,
-            .form-select:disabled {
-                background-color: var(--bs-secondary-bg);
-                opacity: 0.6;
-                cursor: not-allowed;
-            }
-
-            /* ************ Readonly form elements ************ */
-            .form-control[readonly] {
-                background-color: var(--bs-secondary-bg);
-            }
-
-            /* ************ File input ************ */
-            .form-control[type="file"] {
-                padding: 0.375rem 0.75rem;
-            }
-
-            /* ************ Form actions ************ */
-            .form-actions {
-                padding: 1rem 0;
-                border-top: 1px solid var(--bs-border-color);
-                margin-top: 1.5rem;
-                display: flex;
-                gap: 0.5rem;
-            }
-
-            /* ************ Compact form variant ************ */
-            .form-compact .form-group {
-                margin-bottom: 0.75rem;
-            }
-
-            .form-compact .form-label {
-                font-size: 0.8rem;
-                margin-bottom: 0.25rem;
-            }
-
-            .form-compact .form-control,
-            .form-compact .form-select {
-                padding: 0.375rem 0.5rem;
-                font-size: 0.8rem;
-            }
-
-            /* ************ Responsive form adjustments ************ */
-            @media (max-width: 767.98px) {
-                .form-row > .form-group {
-                    flex: 0 0 100%;
-                    margin-bottom: 0.75rem;
-                }
-                
-                .form-actions {
-                    flex-direction: column;
-                }
-                
-                .form-actions .btn {
-                    width: 100%;
-                }
-            }
-
-            @media (max-width: 767.98px) {
-                .sidebar {
-                    position: fixed;
-                    z-index: 1040;
-                    left: 0;
-                    top: 0;
-                    bottom: 0;
-                    margin-left: calc(-1 * var(--sidebar-width));
-                }
-
-                body.sidebar-collapsed .sidebar {
-                    margin-left: 0;
-                }
-
-                body.sidebar-collapsed .sidebar-backdrop {
-                    display: block;
-                }
-
-                .sidebar-backdrop {
-                    position: fixed;
-                    inset: 0;
-                    background-color: rgba(0, 0, 0, 0.25);
-                    z-index: 1030;
-                    display: none;
-                }
-
-                .search-form {
-                    max-width: 200px;
-                }
-            }
+/* ************ Roots Variable ************ */
+:root {
+    --sidebar-width: 240px;
+    --top-navbar-height: 56px;
+    --card-border-radius: 0.5rem;
+    --card-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --transition-speed: 0.2s;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bs-body-bg);
+}
+
+/* ************ Sidebar ************ */
+.sidebar {
+    width: var(--sidebar-width);
+    border-right: 1px solid var(--bs-border-color);
+    background-color: var(--bs-body-bg);
+    padding-top: 0.75rem;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    height: 100vh;
+    transition: margin-left var(--transition-speed) ease-in-out;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 0.5rem 1rem 1rem;
+}
+
+.sidebar-brand {
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.9rem;
+    color: var(--bs-body-color);
+    font-size: 0.95rem;
+    margin: 0.1rem 0.75rem;
+}
+
+.sidebar .nav-link i {
+    font-size: 1.1rem;
+}
+
+.sidebar .nav-link.active,
+.sidebar .nav-link:hover {
+    background-color: var(--bs-primary-bg-subtle);
+    color: var(--bs-primary);
+}
+
+.sidebar-section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0.75rem 0.75rem 0.25rem;
+    color: var(--bs-secondary-color);
+}
+
+body.sidebar-collapsed .sidebar {
+    margin-left: calc(-1 * var(--sidebar-width));
+}
+
+/* ************ Top navbar ************ */
+.top-navbar {
+    border-bottom: 1px solid var(--bs-border-color);
+    height: var(--top-navbar-height);
+}
+
+.navbar-brand-text {
+    font-weight: 600;
+}
+
+/* ************ Search bar ************ */
+.search-form {
+    max-width: 300px;
+}
+
+.search-form .form-control {
+    border-radius: 1.5rem;
+    padding-left: 2.5rem;
+}
+
+.search-form .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--bs-secondary-color);
+    z-index: 5;
+}
+
+/* ************ Main content ************ */
+.content-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ************ Dashboard cards ************ */
+.stat-card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.stat-card-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--bs-secondary-color);
+}
+
+.stat-card-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+
+/* ************ Responsive cards ************ */
+.card {
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    border: 2.0px solid var(--bs-border-color);
+}
+
+.card-header {
+    background-color: var(--bs-body-bg);
+    border-bottom: 1px solid var(--bs-border-color);
+    padding: 0.75rem 1rem;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/* ************ Custom Cards ************ */
+.stat-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--bs-border-color);
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.stat-card-icon-lg {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stat-card-change {
+    font-size: 0.8rem;
+}
+
+.stat-card-change.positive {
+    color: var(--bs-success);
+}
+
+.stat-card-change.negative {
+    color: var(--bs-danger);
+}
+
+/* User cards */
+.user-card .user-avatar-lg {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Progress cards */
+.progress-card .progress {
+    height: 6px;
+}
+
+/* Icon cards */
+.icon-card {
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.icon-card:hover {
+    transform: translateY(-2px);
+}
+
+.icon-card .card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Activity cards */
+.activity-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+/* Task cards */
+.task-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-checkbox:checked + .task-label {
+    text-decoration: line-through;
+    color: var(--bs-secondary-color);
+}
+
+/* Notification cards */
+.notification-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Chart cards */
+.chart-card .chart-container {
+    height: 200px;
+}
+
+/* Product cards */
+.product-card .product-image {
+    height: 140px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Card with actions */
+.card-with-actions .card-actions {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.card-with-actions:hover .card-actions {
+    opacity: 1;
+}
+
+/* Card gradients */
+.card-gradient-primary {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, #0d6efd 100%);
+    color: white;
+}
+
+.card-gradient-success {
+    background: linear-gradient(135deg, var(--bs-success) 0%, #198754 100%);
+    color: white;
+}
+
+.card-gradient-warning {
+    background: linear-gradient(135deg, var(--bs-warning) 0%, #ffc107 100%);
+    color: white;
+}
+
+.card-gradient-info {
+    background: linear-gradient(135deg, var(--bs-info) 0%, #0dcaf0 100%);
+    color: white;
+}
+
+/* Card hover effects */
+.card-hover-lift {
+    transition: all 0.3s ease;
+}
+
+.card-hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+/* Card borders */
+.card-border-primary {
+    border-left: 4px solid var(--bs-primary);
+}
+
+.card-border-success {
+    border-left: 4px solid var(--bs-success);
+}
+
+.card-border-warning {
+    border-left: 4px solid var(--bs-warning);
+}
+
+.card-border-danger {
+    border-left: 4px solid var(--bs-danger);
+}
+
+/* Card status indicators */
+.card-status {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 0 var(--card-border-radius) var(--card-border-radius) 0;
+}
+
+.card-status-online {
+    background-color: var(--bs-success);
+}
+
+.card-status-offline {
+    background-color: var(--bs-secondary);
+}
+
+.card-status-busy {
+    background-color: var(--bs-warning);
+}
+
+.card-status-error {
+    background-color: var(--bs-danger);
+}
+
+/* Card loading state */
+.card-loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Card badges */
+.card-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    z-index: 1;
+}
+
+/* Responsive card adjustments */
+@media (max-width: 767.98px) {
+    .stat-card-icon-lg {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+    
+    .user-card .user-avatar-lg {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .icon-card {
+        padding: 1rem;
+    }
+    
+    .icon-card .card-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* ************ Chart canvas ************ */
+.chart-canvas {
+    width: 100% !important;
+    height: 260px !important;
+}
+
+/* ************ Table styles ************ */
+.table-card .table {
+    margin-bottom: 0;
+}
+
+.table-card .table th {
+    border-top: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--bs-secondary-color);
+}
+
+/* ************ User avatars ************ */
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ************ Profile layout ************ */
+.profile-sidebar {
+    border-right: 1px solid var(--bs-border-color);
+}
+
+/* ************ Breadcrumb ************ */
+.breadcrumb {
+    background-color: transparent;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-item a {
+    color: var(--bs-primary);
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: var(--bs-secondary-color);
+}
+
+/* ************ Placeholder content ************ */
+.placeholder-content {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--bs-secondary-color);
+}
+
+.placeholder-content i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* ************ Theme buttons ************ */
+.btn-theme {
+    min-width: 90px;
+}
+
+.btn-theme.active {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+}
+
+/* ************ Footer ************ */
+.footer {
+    background-color: var(--bs-body-bg);
+}
+
+.footer a {
+    color: var(--bs-secondary-color);
+    transition: color var(--transition-speed);
+}
+
+.footer a:hover {
+    color: var(--bs-primary);
+}
+
+/* ************ Form elements ************ */
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--bs-body-color);
+}
+
+.form-control,
+.form-select {
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.1);
+}
+
+.form-control::placeholder {
+    color: var(--bs-secondary-color);
+    opacity: 0.7;
+}
+
+/* ************ Form validation states ************ */
+.form-control.is-valid {
+    border-color: var(--bs-success);
+}
+
+.form-control.is-invalid {
+    border-color: var(--bs-danger);
+}
+
+.invalid-feedback {
+    font-size: 0.8rem;
+    color: var(--bs-danger);
+    margin-top: 0.25rem;
+}
+
+/* ************ Checkboxes and radios ************ */
+.form-check-input {
+    border: 1px solid var(--bs-border-color);
+    background-color: var(--bs-body-bg);
+}
+
+.form-check-input:checked {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.form-check-input:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.1);
+}
+
+.form-check-label {
+    font-size: 0.875rem;
+    color: var(--bs-body-color);
+}
+
+/* ************ Form groups and layouts ************ */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+}
+
+.form-row > .form-group {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    flex: 1 0 0%;
+}
+
+/* ************ Required field indicator ************ */
+.required::after {
+    content: "*";
+    color: var(--bs-danger);
+    margin-left: 0.25rem;
+}
+
+/* ************ Form help text ************ */
+.form-text {
+    font-size: 0.8rem;
+    color: var(--bs-secondary-color);
+    margin-top: 0.25rem;
+}
+
+/* ************ Disabled form elements ************ */
+.form-control:disabled,
+.form-select:disabled {
+    background-color: var(--bs-secondary-bg);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ************ Readonly form elements ************ */
+.form-control[readonly] {
+    background-color: var(--bs-secondary-bg);
+}
+
+/* ************ File input ************ */
+.form-control[type="file"] {
+    padding: 0.375rem 0.75rem;
+}
+
+/* ************ Form actions ************ */
+.form-actions {
+    padding: 1rem 0;
+    border-top: 1px solid var(--bs-border-color);
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* ************ Compact form variant ************ */
+.form-compact .form-group {
+    margin-bottom: 0.75rem;
+}
+
+.form-compact .form-label {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.form-compact .form-control,
+.form-compact .form-select {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* ************ Select2 Customization ************ */
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.375rem;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: var(--bs-primary-bg-subtle);
+    border: 1px solid var(--bs-primary-border-subtle);
+    color: var(--bs-primary);
+}
+
+/* ************ Fix for Bootstrap focus ring ************ */
+.tagify {
+    --tags-focus-border-color: #86b7fe;
+    --tags-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* ************ Codemirror settings ************ */
+.CodeMirror {
+    height: auto;
+}
+
+/* ************ Custom Multi-File Drop Zone ************ */
+.custom-file-drop {
+    background-color: var(--bs-body-bg);
+    border: 2px dashed var(--bs-border-color);
+    border-radius: var(--card-border-radius);
+    padding: 3.5rem 2rem;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease-in-out;
+    user-select: none;
+}
+
+.custom-file-drop:hover {
+    border-color: var(--bs-primary);
+    background-color: var(--bs-primary-bg-subtle);
+}
+
+.custom-file-drop.dragover {
+    background-color: var(--bs-primary-bg-subtle);
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.15);
+}
+
+.custom-file-drop input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.custom-file-drop__title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--bs-body-color);
+    margin-bottom: 0.5rem;
+    pointer-events: none;
+}
+
+.custom-file-drop__or {
+    color: var(--bs-secondary-color);
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    pointer-events: none;
+}
+
+.custom-file-drop__button {
+    background-color: var(--bs-primary);
+    color: white;
+    border: none;
+    padding: 0.55rem 1.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.custom-file-drop__button:hover {
+    background-color: #0d5bde;
+}
+
+.custom-file-drop__filename {
+    margin-top: 1rem;
+    color: var(--bs-secondary-color);
+    font-size: 0.875rem;
+    font-weight: 500;
+    min-height: 1.5em;
+    pointer-events: none;
+}
+/*750*/
+
+/* ************ Responsive form adjustments ************ */
+@media (max-width: 767.98px) {
+    .form-row > .form-group {
+        flex: 0 0 100%;
+        margin-bottom: 0.75rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        position: fixed;
+        z-index: 1040;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin-left: calc(-1 * var(--sidebar-width));
+    }
+
+    body.sidebar-collapsed .sidebar {
+        margin-left: 0;
+    }
+
+    body.sidebar-collapsed .sidebar-backdrop {
+        display: block;
+    }
+
+    .sidebar-backdrop {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.25);
+        z-index: 1030;
+        display: none;
+    }
+
+    .search-form {
+        max-width: 200px;
+    }
+}
         </style>
     </head>
     <body>
@@ -522,7 +887,7 @@
                                 href="#"
                                 class="nav-link d-flex justify-content-between align-items-center bs-dropdown-toggle"
                                 data-bs-toggle="collapse"
-                                data-bs-target="#pageExamplesMenu"
+                                data-bs-target="#pageDropdownMenu"
                             >
                                 <span>
                                     <i class="ri-git-branch-line me-2"></i>
@@ -530,27 +895,56 @@
                                 </span>
                                 <i class="ri-arrow-right-s-line toggle-arrow"></i>
                             </a>
-                            <div class="collapse ps-4" id="pageExamplesMenu">
-                                <a href="sign-in.php" class="nav-link">
+                            <div class="collapse ps-4" id="pageDropdownMenu">
+                                <a href="sign-in.php" class="nav-link active" target="_blank">
                                     <i class="ri-checkbox-blank-circle-line"></i> Sign In
                                 </a>
-                                <a href="sign-up.php" class="nav-link">
+                                <a href="sign-up.php" class="nav-link" target="_blank">
                                     <i class="ri-checkbox-blank-circle-line"></i> Sign Up
                                 </a>
-                                <a href="forgot-password.php" class="nav-link">
+                                <a href="forgot-password.php" class="nav-link" target="_blank">
                                     <i class="ri-checkbox-blank-circle-line"></i> Forgot Password
                                 </a>
-                                <a href="reset-password.php" class="nav-link">
+                                <a href="reset-password.php" class="nav-link" target="_blank">
                                     <i class="ri-checkbox-blank-circle-line"></i> Reset Password
                                 </a>
-                                <a href="404.php" class="nav-link">
+                                <a href="404.php" class="nav-link" target="_blank">
                                     <i class="ri-checkbox-blank-circle-line"></i> 404 Not Found
                                 </a>
-                                <a href="500.php" class="nav-link">
+                                <a href="500.php" class="nav-link" target="_blank">
                                     <i class="ri-checkbox-blank-circle-line"></i> 500 Error
                                 </a>
-                                <a href="lock.php" class="nav-link">
+                                <a href="lock.php" class="nav-link" target="_blank">
                                     <i class="ri-checkbox-blank-circle-line"></i> Lock
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-section-title">Sample Dropdown</div>
+                        <nav class="nav flex-column mb-2">
+                            <!-- Dropdown (Expandable) -->
+                            <a
+                                href="#"
+                                class="nav-link d-flex justify-content-between align-items-center bs-dropdown-toggle"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#pageExamplesMenu"
+                            >
+                                <span>
+                                    <i class="ri-git-branch-line me-2"></i>
+                                    Dropdowns
+                                </span>
+                                <i class="ri-arrow-right-s-line toggle-arrow"></i>
+                            </a>
+                            <div class="collapse ps-4" id="pageExamplesMenu">
+                                <a href="#!" class="nav-link" target="_blank">
+                                    <i class="ri-checkbox-blank-circle-line"></i> Dropdown One
+                                </a>
+                                <a href="#!" class="nav-link" target="_blank">
+                                    <i class="ri-checkbox-blank-circle-line"></i> Dropdown Two
+                                </a>
+                                <a href="#!" class="nav-link" target="_blank">
+                                    <i class="ri-checkbox-blank-circle-line"></i> Dropdown Three
                                 </a>
                             </div>
                         </nav>
@@ -563,290 +957,7 @@
                 <?php include_once 'includes/_top_navbar.php'; ?>
                 <!-- Content -->
                 <main class="flex-grow-1 p-3 p-md-4">
-                    <!-- Profile Page -->
-                    <section class="page">
-                        <nav aria-label="breadcrumb" class="mb-3">
-                            <ol class="breadcrumb small mb-1">
-                                <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Profile</li>
-                            </ol>
-                        </nav>
-                        <div class="mb-3">
-                            <h4 class="mb-1">Profile</h4>
-                            <p class="text-secondary mb-0">Update your profile settings</p>
-                        </div>
-                        <div class="card">
-                            <div class="row g-0">
-                                <div class="col-md-3 border-end">
-                                    <div class="list-group list-group-flush" id="profile-tabs" role="tablist">
-                                        <button
-                                            class="list-group-item list-group-item-action active"
-                                            id="users-tab"
-                                            data-bs-toggle="list"
-                                            data-bs-target="#tab-users"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="tab-users"
-                                        >
-                                            Users
-                                        </button>
-                                        <button
-                                            class="list-group-item list-group-item-action"
-                                            id="profile-tab"
-                                            data-bs-toggle="list"
-                                            data-bs-target="#tab-profile"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="tab-profile"
-                                        >
-                                            Profile
-                                        </button>
-                                        <button
-                                            class="list-group-item list-group-item-action"
-                                            id="password-tab"
-                                            data-bs-toggle="list"
-                                            data-bs-target="#tab-password"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="tab-password"
-                                        >
-                                            Password
-                                        </button>
-                                        <button
-                                            class="list-group-item list-group-item-action"
-                                            id="appearance-tab"
-                                            data-bs-toggle="list"
-                                            data-bs-target="#tab-appearance"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="tab-appearance"
-                                        >
-                                            Appearance
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="card-body">
-                                        <div class="tab-content">
-                                            <!-- Users tab -->
-                                            <div
-                                                class="tab-pane fade show active"
-                                                id="tab-users"
-                                                role="tabpanel"
-                                                aria-labelledby="users-tab"
-                                            >
-                                                <div class="col-12">
-                                                    <div class="card table-card">
-                                                        <div class="card-header">
-                                                            <h5 class="card-title mb-0">Recent Users</h5>
-                                                        </div>
-                                                        <div class="card-body p-3">
-                                                            <div class="table-responsive">
-                                                                <table
-                                                                    class="table table-hover align-middle datatable"
-                                                                    id="recentUsersTable"
-                                                                    style="width: 100%"
-                                                                >
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>User</th>
-                                                                            <th>Email</th>
-                                                                            <th>Status</th>
-                                                                            <th>Joined</th>
-                                                                            <th>Actions</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div class="d-flex align-items-center">
-                                                                                    <img
-                                                                                        src="https://ui-avatars.com/api/?name=Jane+Doe&background=0D8ABC&color=fff"
-                                                                                        alt="Jane Doe"
-                                                                                        class="user-avatar me-2"
-                                                                                    />
-                                                                                    <div>
-                                                                                        <div class="fw-semibold">Jane Doe</div>
-                                                                                        <small class="text-secondary">Administrator</small>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>jane.doe@example.com</td>
-                                                                            <td>
-                                                                                <span class="badge text-bg-success">Active</span>
-                                                                            </td>
-                                                                            <td>2024-09-12</td>
-                                                                            <td>
-                                                                                <button class="btn btn-sm btn-outline-secondary">
-                                                                                    <i class="ri-eye-line"></i>
-                                                                                </button>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div class="d-flex align-items-center">
-                                                                                    <img
-                                                                                        src="https://ui-avatars.com/api/?name=John+Smith&background=FF6B6B&color=fff"
-                                                                                        alt="John Smith"
-                                                                                        class="user-avatar me-2"
-                                                                                    />
-                                                                                    <div>
-                                                                                        <div class="fw-semibold">John Smith</div>
-                                                                                        <small class="text-secondary">Editor</small>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>john.smith@example.com</td>
-                                                                            <td>
-                                                                                <span class="badge text-bg-warning">Pending</span>
-                                                                            </td>
-                                                                            <td>2024-10-03</td>
-                                                                            <td>
-                                                                                <button class="btn btn-sm btn-outline-secondary">
-                                                                                    <i class="ri-eye-line"></i>
-                                                                                </button>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div class="d-flex align-items-center">
-                                                                                    <img
-                                                                                        src="https://ui-avatars.com/api/?name=Fatou+Kamara&background=34A853&color=fff"
-                                                                                        alt="Fatou Kamara"
-                                                                                        class="user-avatar me-2"
-                                                                                    />
-                                                                                    <div>
-                                                                                        <div class="fw-semibold">Fatou Kamara</div>
-                                                                                        <small class="text-secondary">Viewer</small>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>fatou.kamara@example.com</td>
-                                                                            <td>
-                                                                                <span class="badge text-bg-secondary">Inactive</span>
-                                                                            </td>
-                                                                            <td>2024-08-21</td>
-                                                                            <td>
-                                                                                <button class="btn btn-sm btn-outline-secondary">
-                                                                                    <i class="ri-eye-line"></i>
-                                                                                </button>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <!-- Profile tab -->
-                                            <div
-                                                class="tab-pane fade show"
-                                                id="tab-profile"
-                                                role="tabpanel"
-                                                aria-labelledby="profile-tab"
-                                            >
-                                                <h6 class="mb-3">Profile details</h6>
-                                                <form class="mb-4">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <input type="text" class="form-control" value="Abdoulie" />
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Email</label>
-                                                        <input
-                                                            type="email"
-                                                            class="form-control"
-                                                            value="akassama@yahoo.com"
-                                                        />
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary">
-                                                        <i class="ri-save-line"></i> Save
-                                                    </button>
-                                                </form>
-                                                <hr />
-                                                <div>
-                                                    <h6 class="mb-2 text-danger">Delete account</h6>
-                                                    <p class="text-secondary small mb-3">
-                                                        Delete your account and all of its resources.
-                                                    </p>
-                                                    <button type="button" class="btn btn-outline-danger btn-sm">
-                                                        <i class="ri-error-warning-line"></i> Delete account
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <!-- Password tab -->
-                                            <div
-                                                class="tab-pane fade"
-                                                id="tab-password"
-                                                role="tabpanel"
-                                                aria-labelledby="password-tab"
-                                            >
-                                                <h6 class="mb-3">Update password</h6>
-                                                <form class="mb-2">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Current password</label>
-                                                        <input type="password" class="form-control" />
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">New password</label>
-                                                        <input type="password" class="form-control" />
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Confirm new password</label>
-                                                        <input type="password" class="form-control" />
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary">
-                                                        <i class="ri-edit-2-line"></i> Update password
-                                                    </button>
-                                                </form>
-                                            </div>
-                                            <!-- Appearance tab -->
-                                            <div
-                                                class="tab-pane fade"
-                                                id="tab-appearance"
-                                                role="tabpanel"
-                                                aria-labelledby="appearance-tab"
-                                            >
-                                                <h6 class="mb-3">Appearance</h6>
-                                                <p class="text-secondary small mb-3">
-                                                    Update the appearance settings for your account.
-                                                </p>
-                                                <div class="mb-2">Theme</div>
-                                                <div class="btn-group mb-3" role="group" aria-label="Theme">
-                                                    <button
-                                                        type="button"
-                                                        class="btn btn-outline-secondary btn-theme"
-                                                        data-theme-value="light"
-                                                    >
-                                                        <i class="ri-sun-line me-1"></i> Light
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        class="btn btn-outline-secondary btn-theme"
-                                                        data-theme-value="dark"
-                                                    >
-                                                        <i class="ri-moon-line me-1"></i> Dark
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        class="btn btn-outline-secondary btn-theme"
-                                                        data-theme-value="system"
-                                                    >
-                                                        <i class="ri-computer-line me-1"></i> System
-                                                    </button>
-                                                </div>
-                                                <p class="text-secondary small mb-0">
-                                                    Your selection will be remembered the next time you visit this page.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    
                 </main>
                 <?php include_once 'includes/_footer.php'; ?>
             </div>

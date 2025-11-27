@@ -12,7 +12,7 @@
         <div class="sidebar-section">
             <div class="sidebar-section-title">Menu</div>
             <nav class="nav flex-column mb-2">
-                <a href="index.php" class="nav-link active">
+                <a href="index.php" class="nav-link">
                     <i class="ri-home-2-line"></i>
                     <span class="sidebar-text">Dashboard</span>
                 </a>
@@ -54,7 +54,7 @@
                     href="#"
                     class="nav-link d-flex justify-content-between align-items-center bs-dropdown-toggle"
                     data-bs-toggle="collapse"
-                    data-bs-target="#pageExamplesMenu"
+                    data-bs-target="#pageDropdownMenu"
                 >
                     <span>
                         <i class="ri-git-branch-line me-2"></i>
@@ -62,7 +62,7 @@
                     </span>
                     <i class="ri-arrow-right-s-line toggle-arrow"></i>
                 </a>
-                <div class="collapse ps-4" id="pageExamplesMenu">
+                <div class="collapse ps-4" id="pageDropdownMenu">
                     <a href="sign-in.php" class="nav-link" target="_blank">
                         <i class="ri-checkbox-blank-circle-line"></i> Sign In
                     </a>
@@ -83,6 +83,35 @@
                     </a>
                     <a href="lock.php" class="nav-link" target="_blank">
                         <i class="ri-checkbox-blank-circle-line"></i> Lock
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Sample Dropdown</div>
+            <nav class="nav flex-column mb-2">
+                <!-- Dropdown (Expandable) -->
+                <a
+                    href="#"
+                    class="nav-link d-flex justify-content-between align-items-center bs-dropdown-toggle"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#pageExamplesMenu"
+                >
+                    <span>
+                        <i class="ri-git-branch-line me-2"></i>
+                        Dropdowns
+                    </span>
+                    <i class="ri-arrow-right-s-line toggle-arrow"></i>
+                </a>
+                <div class="collapse ps-4" id="pageExamplesMenu">
+                    <a href="#!" class="nav-link" target="_blank">
+                        <i class="ri-checkbox-blank-circle-line"></i> Dropdown One
+                    </a>
+                    <a href="#!" class="nav-link" target="_blank">
+                        <i class="ri-checkbox-blank-circle-line"></i> Dropdown Two
+                    </a>
+                    <a href="#!" class="nav-link" target="_blank">
+                        <i class="ri-checkbox-blank-circle-line"></i> Dropdown Three
                     </a>
                 </div>
             </nav>

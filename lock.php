@@ -5,8 +5,11 @@
     <title>Locked — Bootstrap 5 Admin Starter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <?php include_once 'includes/_header_assets.php'; ?>
+    <!-- Auth CSS -->
+    <link rel="stylesheet" href="assets/css/auth.css" />
 </head>
 <body>
+
     <div class="lock-card card">
         <img src="https://ui-avatars.com/api/?name=Abdoulie&background=0D8ABC&color=fff" alt="Abdoulie" class="user-avatar" />
         <h2 class="lock-title">Abdoulie</h2>

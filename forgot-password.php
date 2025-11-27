@@ -5,6 +5,8 @@
     <title>Forgot Password — Bootstrap 5 Admin Starter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <?php include_once 'includes/_header_assets.php'; ?>
+    <!-- Auth CSS -->
+    <link rel="stylesheet" href="assets/css/auth.css" />
 </head>
 <body>
     <div class="auth-card card">
