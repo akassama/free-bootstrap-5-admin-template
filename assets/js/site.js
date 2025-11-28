@@ -354,54 +354,58 @@ $(document).ready(function() {
      * Set custom dropfile 
      */
     const fileInput = document.getElementById('images');
-    const fileNameDisplay = document.getElementById('file-name');
-    const dropArea = document.getElementById('dropcontainer');
 
-    function updateFileName() {
-        const files = fileInput.files;
-        
-        if (files.length === 0) {
-            fileNameDisplay.textContent = 'No files chosen';
-        } else if (files.length === 1) {
-            fileNameDisplay.textContent = files[0].name;
-        } else {
-            fileNameDisplay.textContent = `${files.length} files selected`;
+    // Only proceed if the 'images' input element exists
+    if (fileInput) {
+        const fileNameDisplay = document.getElementById('file-name');
+        const dropArea = document.getElementById('dropcontainer');
+
+        function updateFileName() {
+            const files = fileInput.files;
+
+            if (files.length === 0) {
+                fileNameDisplay.textContent = 'No files chosen';
+            } else if (files.length === 1) {
+                fileNameDisplay.textContent = files[0].name;
+            } else {
+                fileNameDisplay.textContent = `${files.length} files selected`;
+            }
         }
-    }
 
-    // Update display when files are selected via input
-    fileInput.addEventListener('change', updateFileName);
+        // Update display when files are selected via input
+        fileInput.addEventListener('change', updateFileName);
 
-    // Drag & drop visual feedback
-    ['dragover', 'dragenter'].forEach(evt => {
-        dropArea.addEventListener(evt, e => {
-            e.preventDefault();
-            dropArea.classList.add('dragover');
+        // Drag & drop visual feedback
+        ['dragover', 'dragenter'].forEach(evt => {
+            dropArea.addEventListener(evt, e => {
+                e.preventDefault();
+                dropArea.classList.add('dragover');
+            });
         });
-    });
 
-    ['dragleave', 'drop'].forEach(evt => {
-        dropArea.addEventListener(evt, e => {
+        ['dragleave', 'drop'].forEach(evt => {
+            dropArea.addEventListener(evt, e => {
+                e.preventDefault();
+                dropArea.classList.remove('dragover');
+            });
+        });
+
+        // Handle actual file drop
+        dropArea.addEventListener('drop', e => {
             e.preventDefault();
             dropArea.classList.remove('dragover');
+
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files; // Assign dropped files
+                updateFileName();
+            }
         });
-    });
 
-    // Handle actual file drop
-    dropArea.addEventListener('drop', e => {
-        e.preventDefault();
-        dropArea.classList.remove('dragover');
-
-        if (e.dataTransfer.files.length) {
-            fileInput.files = e.dataTransfer.files;  // Assign dropped files
-            updateFileName();
-        }
-    });
-
-    // Optional: Make the button also trigger the input
-    document.querySelector('.custom-file-drop__button').addEventListener('click', () => {
-        fileInput.click();
-    });
+        // Optional: Make the button also trigger the input
+        document.querySelector('.custom-file-drop__button').addEventListener('click', () => {
+            fileInput.click();
+        });
+    }
 
 });
 

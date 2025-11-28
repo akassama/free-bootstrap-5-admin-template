@@ -15,16 +15,16 @@
                 <?php include_once 'includes/_top_navbar.php'; ?>
                 <!-- Content -->
                 <main class="flex-grow-1 p-3 p-md-4">
-                    <!-- Blank Page -->
+                    <!-- Dropdown Page -->
                     <section class="page">
                         <nav aria-label="breadcrumb" class="mb-3">
                             <ol class="breadcrumb small mb-1">
                                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Blank Page</li>
+                                <li class="breadcrumb-item active" aria-current="page">Dropdown Page</li>
                             </ol>
                         </nav>
                         <div class="mb-3">
-                            <h4 class="mb-1">Blank Page</h4>
+                            <h4 class="mb-1">Dropdown Page</h4>
                             <p class="text-secondary mb-0">A clean starting point for your pages</p>
                         </div>
                         <div class="card">
@@ -32,11 +32,10 @@
                                 <h5 class="card-title">Example Card</h5>
                             </div>
                             <div class="card-body">
-                                <p>This is a Blank Page with breadcrumb and card layout.</p>
-                                <p>You can use this as a starting point for building new pages in your application.</p>
+                                <p>This is a Dropdown Page with breadcrumb and card layout.</p>
 
                                 <div class="d-flex justify-content-between mt-3">
-                                    <a href="#!" class="btn btn-outline-secondary">
+                                    <a href="index.php" class="btn btn-outline-secondary">
                                         <i class="ri-arrow-left-fill"></i> Back
                                     </a>
 

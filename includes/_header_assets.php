@@ -32,5 +32,7 @@
         <!-- Quill stylesheet -->
         <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.bubble.css" rel="stylesheet"/>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <!-- Site CSS -->
         <link rel="stylesheet" href="assets/css/site.css" />
