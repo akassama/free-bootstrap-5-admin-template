@@ -353,9 +353,9 @@ $(document).ready(function() {
     /**
      * Set custom dropfile 
      */
-    const fileInput = document.getElementById('images');
+    const fileInput = document.querySelector('.files-input');
 
-    // Only proceed if the 'images' input element exists
+    // Only proceed if the 'files-input' element exists
     if (fileInput) {
         const fileNameDisplay = document.getElementById('file-name');
         const dropArea = document.getElementById('dropcontainer');
@@ -396,15 +396,23 @@ $(document).ready(function() {
             dropArea.classList.remove('dragover');
 
             if (e.dataTransfer.files.length) {
-                fileInput.files = e.dataTransfer.files; // Assign dropped files
+                // Create a new DataTransfer object to assign files to input
+                const dataTransfer = new DataTransfer();
+                for (const file of e.dataTransfer.files) {
+                    dataTransfer.items.add(file);
+                }
+                fileInput.files = dataTransfer.files;
                 updateFileName();
             }
         });
 
         // Optional: Make the button also trigger the input
-        document.querySelector('.custom-file-drop__button').addEventListener('click', () => {
-            fileInput.click();
-        });
+        const dropButton = document.querySelector('.custom-file-drop__button');
+        if (dropButton) {
+            dropButton.addEventListener('click', () => {
+                fileInput.click();
+            });
+        }
     }
 
 });

@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="d-flex align-items-center mb-3">
-                                            <img src="https://ui-avatars.com/api/?name=Jane+Doe&background=0D8ABC&color=fff" 
+                                            <img src="https://assets.aktools.net/image-stocks/teams/team-4.jpg" 
                                                 alt="Jane Doe" class="user-avatar me-3">
                                             <div class="flex-grow-1">
                                                 <h6 class="mb-0">Jane Doe</h6>
@@ -132,7 +132,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center mb-3">
-                                            <img src="https://ui-avatars.com/api/?name=John+Smith&background=FF6B6B&color=fff" 
+                                            <img src="https://assets.aktools.net/image-stocks/teams/team-1.jpg" 
                                                 alt="John Smith" class="user-avatar me-3">
                                             <div class="flex-grow-1">
                                                 <h6 class="mb-0">John Smith</h6>
@@ -151,7 +151,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center">
-                                            <img src="https://ui-avatars.com/api/?name=Fatou+Kamara&background=34A853&color=fff" 
+                                            <img src="https://assets.aktools.net/image-stocks/teams/team-4.jpg" 
                                                 alt="Fatou Kamara" class="user-avatar me-3">
                                             <div class="flex-grow-1">
                                                 <h6 class="mb-0">Fatou Kamara</h6>
@@ -517,7 +517,7 @@
                                     </div>
                                     <div class="card-body text-center">
                                         <div class="position-relative d-inline-block mb-3">
-                                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                            <img src="https://assets.aktools.net/image-stocks/teams/team-1.jpg" 
                                                 alt="John Smith" class="user-avatar-lg rounded-circle shadow" width="150" height="150">
                                             <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-3 border-white" 
                                                 style="width: 16px; height: 16px;"></span>
@@ -566,7 +566,7 @@
                                     <div class="card-body">
                                         <div class="d-flex align-items-start gap-3">
                                             <div class="position-relative">
-                                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                                <img src="https://assets.aktools.net/image-stocks/teams/team-4.jpg" 
                                                     alt="Sarah Johnson" class="user-avatar-lg rounded-circle" width="100" height="100">
                                                 <span class="position-absolute bottom-0 end-0 bg-warning rounded-circle border border-2 border-white" 
                                                     style="width: 14px; height: 14px;"></span>
@@ -650,7 +650,7 @@
                                 <div class="card text-center card-hover-lift">
                                     <div class="card-body p-3">
                                         <div class="position-relative mx-auto mb-3" style="width: fit-content;">
-                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                            <img src="https://assets.aktools.net/image-stocks/teams/team-2.jpg" 
                                                 alt="Mike Chen" class="user-avatar-lg rounded-circle" width="150" height="150">
                                             <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" 
                                                 style="width: 14px; height: 14px;"></span>
@@ -687,7 +687,7 @@
                                 <div class="card text-center card-hover-lift">
                                     <div class="card-body p-3">
                                         <div class="position-relative mx-auto mb-3" style="width: fit-content;">
-                                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                            <img src="https://assets.aktools.net/image-stocks/teams/team-4.jpg" 
                                                 alt="Emma Davis" class="user-avatar-lg rounded-circle" width="150" height="150">
                                             <span class="position-absolute bottom-0 end-0 bg-warning rounded-circle border border-2 border-white" 
                                                 style="width: 14px; height: 14px;"></span>
@@ -724,7 +724,7 @@
                                 <div class="card text-center card-hover-lift">
                                     <div class="card-body p-3">
                                         <div class="position-relative mx-auto mb-3" style="width: fit-content;">
-                                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                            <img src="https://assets.aktools.net/image-stocks/teams/team-3.jpg" 
                                                 alt="Alex Rodriguez" class="user-avatar-lg rounded-circle" width="150" height="150">
                                             <span class="position-absolute bottom-0 end-0 bg-secondary rounded-circle border border-2 border-white" 
                                                 style="width: 14px; height: 14px;"></span>

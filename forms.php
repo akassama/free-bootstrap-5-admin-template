@@ -127,6 +127,7 @@
                                         <label class="form-label">Drop Files:</label>
                                         <div class="custom-file-drop" id="dropcontainer">
                                             <input type="file" 
+                                                class="files-input"
                                                 id="images" 
                                                 accept="image/*" 
                                                 multiple 
