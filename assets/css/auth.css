@@ -214,3 +214,25 @@ body {
 .footer-links a:hover {
     text-decoration: underline;
 }
+
+/* ensures smooth toggle button experience, matches bootstrap input group */
+.toggle-password {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+.toggle-password i {
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+/* ensures input group button border aligns perfectly */
+.input-group .toggle-password {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+/* optional: subtle focus state */
+.toggle-password:focus {
+    box-shadow: none;
+    outline: none;
+}

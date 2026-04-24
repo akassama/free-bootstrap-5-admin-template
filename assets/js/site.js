@@ -126,7 +126,6 @@
         });
     }
 
-
     /**
      * Initialize DataTable
      */
@@ -140,12 +139,30 @@
         });
     }
 
-    /**
-     * Initialize jQuery Validation
-     */
-    $("form").validate();
-
 })();
+
+$(document).ready(function() {
+    // Initialize jQuery Validate on all forms with class "validate-form"
+    $("form.validate-form").each(function() {
+        $(this).validate({
+            errorElement: "span",
+            errorClass: "field-error text-danger",
+            highlight: function(element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function(element) {
+                $(element).removeClass("is-invalid");
+            },
+            errorPlacement: function(error, element) {
+                if (element.parent().hasClass("input-group")) {
+                    error.insertAfter(element.parent());
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+    });
+});
 
 $(document).ready(function() {
 
@@ -416,5 +433,3 @@ $(document).ready(function() {
     }
 
 });
-
-

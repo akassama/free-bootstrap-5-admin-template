@@ -35,7 +35,7 @@
                                 <h5 class="card-title">Sample Form</h5>
                             </div>
                             <div class="card-body">
-                                <form id="sampleForm">
+                                <form id="sampleForm" class="validate-form">
                                     <div class="row">
                                         <!-- Input Field -->
                                         <div class="col-md-6 mb-3">
