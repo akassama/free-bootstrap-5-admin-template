@@ -24,6 +24,11 @@
     const hamburgerIcon = document.querySelector('.top-navbar button[data-toggle="sidebar"] i');
 
     const updateHamburgerIcon = () => {
+        if (!hamburgerIcon) {
+            console.warn('Hamburger icon not found.');
+            return; // Exit if the icon is not found
+        }
+        
         const collapsed = document.body.classList.contains('sidebar-collapsed');
         hamburgerIcon.classList.toggle('ri-menu-fold-line', !collapsed);
         hamburgerIcon.classList.toggle('ri-menu-fold-2-line', collapsed);
@@ -131,8 +136,9 @@
      */
     if (window.jQuery && $(".datatable").length) {
         $(".datatable").DataTable({
-            pageLength: 5,
-            lengthChange: false,
+            pageLength: 10,
+            lengthMenu: [5, 10, 25, 50, 100, 1000],
+            lengthChange: true,
             ordering: true,
             searching: true,
             info: false,
@@ -227,7 +233,7 @@ $(document).ready(function() {
                 console.log( editor );
         })
         .catch( error => {
-                console.error( error );
+                console.warn('Warning: No element found with the class .text-editor');
     });
 
     /**
@@ -432,4 +438,82 @@ $(document).ready(function() {
         }
     }
 
+    /**
+     * ==========================================
+     * Generic Slug Generator
+     * ==========================================
+     * Usage:
+     * 1. Add class="js-slug-source" and data-slug-target="target-id" to the source input.
+     * 2. Add class="js-slug-target" and id="target-id" to the slug input.
+     * 3. Add class="js-slug-generate" and data-slug-source="source-id" data-slug-target="target-id" to the generate button.
+     */
+
+    // Utility function to convert text to a URL-friendly slug
+    function generateSlug(text) {
+        return text.toString().toLowerCase()
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+            .replace(/^-+/, '')             // Trim - from start of text
+            .replace(/-+$/, '');            // Trim - from end of text
+    }
+
+    // 1. Auto-generate on blur of the source input (if not manually edited)
+    $(document).on('blur', '.js-slug-source', function() {
+        const sourceVal = $(this).val();
+        const targetId = $(this).data('slug-target');
+        if (!targetId) return;
+
+        const $target = $('#' + targetId);
+        if ($target.length && sourceVal && !$target.data('manually-edited')) {
+            $target.val(generateSlug(sourceVal));
+        }
+    });
+
+    // 2. Mark target as "manually edited" when the user types in it
+    $(document).on('input', '.js-slug-target', function() {
+        $(this).data('manually-edited', true);
+    });
+
+    // 3. Force generate when the magic/generate button is clicked
+    $(document).on('click', '.js-slug-generate', function() {
+        const sourceId = $(this).data('slug-source');
+        const targetId = $(this).data('slug-target');
+        if (!sourceId || !targetId) return;
+
+        const $source = $('#' + sourceId);
+        const $target = $('#' + targetId);
+
+        if ($source.length && $target.length) {
+            const sourceVal = $source.val();
+            if (sourceVal) {
+                // Force update and mark as manually edited so it doesn't auto-overwrite on next blur
+                $target.val(generateSlug(sourceVal)).data('manually-edited', true);
+            }
+        }
+    });
+    
+});
+
+$(document).ready(function() {
+    const fileInput = document.getElementById('featuredImage');
+    const preview = document.getElementById('featuredPreview');
+
+    fileInput.addEventListener('change', function(e) {
+        const file = this.files[0];
+        if (!file) {
+            preview.innerHTML = `
+                    <i class="ri-image-add-line"></i>
+                    <span class="small">No image selected</span>
+                `;
+            preview.classList.remove('has-image');
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            preview.innerHTML = `<img src="${ev.target.result}" alt="Featured image preview">`;
+            preview.classList.add('has-image');
+        };
+        reader.readAsDataURL(file);
+    });
 });

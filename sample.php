@@ -999,6 +999,7 @@ body.sidebar-collapsed .sidebar {
         <!-- Summernote JS -->
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
         <!-- Tippy JS -->
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script src="https://unpkg.com/tippy.js@6"></script>
         <!--Site JS-->    
         <script>
@@ -1028,6 +1029,11 @@ body.sidebar-collapsed .sidebar {
                 const hamburgerIcon = document.querySelector('.top-navbar button[data-toggle="sidebar"] i');
 
                 const updateHamburgerIcon = () => {
+                    if (!hamburgerIcon) {
+                        console.warn('Hamburger icon not found.');
+                        return; // Exit if the icon is not found
+                    }
+                    
                     const collapsed = document.body.classList.contains('sidebar-collapsed');
                     hamburgerIcon.classList.toggle('ri-menu-fold-line', !collapsed);
                     hamburgerIcon.classList.toggle('ri-menu-fold-2-line', collapsed);

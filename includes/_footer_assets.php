@@ -34,6 +34,7 @@
         <!-- Summernote JS -->
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
         <!-- Tippy JS -->
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script src="https://unpkg.com/tippy.js@6"></script>
         <!-- Tagify -->
         <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>

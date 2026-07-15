@@ -12,7 +12,7 @@
     <div class="error-card card">
         <i class="ri-error-warning-line error-icon"></i>
         <h1 class="error-title">404</h1>
-        <p class="error-message">Sorry, the page you’re looking for doesn’t exist.</p>
+        <p class="error-message">The page you are looking for does not exist or has been moved.</p>
         <a href="index.php" class="btn btn-primary btn-home">
             <i class="ri-home-2-line me-1"></i> Go Home
         </a>
